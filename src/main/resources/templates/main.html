@@ -16,14 +16,14 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-3">
+	        <div class="col-3" th:each="product : ${products}">
                 <div class="card">
-                    <img class="card-image-top" src="../static/images/iphone8.jpg" style="width: 100%;height: 220px;object-fit: cover;" alt="Card image cap">
+                    <img class="card-image-top" th:src="@{|/images/${product.image}|}" style="width: 100%;height: 220px;object-fit: cover;" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title"> Iphone 8</h5>
-                        <small class="card-text">Apple</small>
-                        <p class="card-text">64GB IOS 11 Silver</p>
-                        <p class="card-text">$799.00</p>
+                        <h5 class="card-title" th:text="${product.name}"></h5>
+                        <small class="card-text" th:text="${product.brand}"></small>
+                        <p class="card-text" th:text="${product.description}"></p>
+                        <p class="card-text">$<span th:text="${product.price}"></span></p>
                         <form th:action="@{/cart}" method="post">
                             <input type="hidden" name="id" th:value="${product.id}" style="display: flex; justify-content: space-between;">
                             <button type="submit" class="btn btn-success btn-block"><i class="fas fa-cart-plus"></i></button>
@@ -32,55 +32,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3">
-                <div class="card">
-                <img class="card-image-top" src="../static/images/iphonex.jpg" style="width: 100%;height: 220px;object-fit: cover;" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Iphone X</h5>
-                    <small class="card-text">Apple</small>
-                    <p class="card-text">64GB IOS 11 Space Gray</p>
-                    <p class="card-text">$999.00</p>
-                    <form th:action="@{/cart}" method="post">
-                        <input type="hidden" name="id" th:value="${product.id}" style="display: flex; justify-content: space-between;">
-                        <button type="submit" class="btn btn-success btn-block"><i class="fas fa-cart-plus"></i></button>
-                        <a th:href="@{|/product/${product.id}|}" class="btn btn-info btn-block"><i class="fas fa-info" style="color: white"></i></a>
-                    </form>
-                </div>
-            </div>
-            </div>
-            <div class="col-3">
-                <div class="card">
-                <img class="card-image-top" src="../static/images/mackbook_pro.jpg" style="width: 100%;height: 220px;object-fit: cover;" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">MacBook Pro</h5>
-                    <small class="card-text">Apple</small>
-                    <p class="card-text">15' Laptop 512GB SSD</p>
-                    <p class="card-text">$2,800.00</p>
-                    <form th:action="@{/cart}" method="post">
-                        <input type="hidden" name="id" th:value="${product.id}" style="display: flex; justify-content: space-between;">
-                        <button type="submit" class="btn btn-success btn-block"><i class="fas fa-cart-plus"></i></button>
-                        <a th:href="@{|/product/${product.id}|}" class="btn btn-info btn-block"><i class="fas fa-info" style="color: white"></i></a>
-                    </form>
-                </div>
-            </div>
-            </div>
-            <div class="col-3 ">
-                <div class="card">
-                    <img class="card-image-top" src="../static/images/lg_tv.jpg" style="width: 100%;height: 220px;object-fit: cover;" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">C7 OLED</h5>
-                        <small class="card-text">LG</small>
-                        <p class="card-text"> 65' Smart Tv</p>
-                        <p class="card-text">$3,000.00</p>
-                        <form th:action="@{/cart}" method="post">
-                            <input type="hidden" name="id" th:value="${product.id}" style="display: flex; justify-content: space-between;">
-                            <button type="submit" class="btn btn-success btn-block"><i class="fas fa-cart-plus"></i></button>
-                            <a th:href="@{|/product/${product.id}|}" class="btn btn-info btn-block"><i class="fas fa-info" style="color: white"></i></a>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <!--Fill this part in-->
         </div>
     </div>
 </main>
