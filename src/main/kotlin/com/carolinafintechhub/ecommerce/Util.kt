@@ -8,6 +8,16 @@ import java.util.Optional
 
 fun <T> Optional<T>.orNull(): T? = this.orElse(null)
 
+operator fun <A, B> Pair<Iterable<A>, Iterable<B>>.iterator(): Iterator<Pair<A, B>> {
+	val a = first.iterator()
+	val b = second.iterator()
+	
+	return object : Iterator<Pair<A, B>> {
+		override fun hasNext() = a.hasNext() && b.hasNext()
+		override fun next() = a.next() to b.next()
+	}
+}
+
 inline operator fun HttpSecurity.invoke(block: HttpSecurity.() -> Unit) {
 	this.block()
 }
