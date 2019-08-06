@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" lang="en">
 <head th:fragment="head">
     <title>eCommerce App</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -57,22 +57,22 @@
             </ul>
 
             <ul class="nav navbar-nav ml-auto">
-                <!--/*@thymesVar id="loggedInUser" type="com.example.demo.model.User"*/-->
-                <th:block th:if="${loggedInUser != null}">
-                    <li class="nav-item active nav-link" th:text="${loggedInUser.username}"></li>
+                <!--/*@thymesVar id="loggedInUser" type="com.carolinafintechhub.ecommerce.User"*/-->
+                <th:block sec:authorize="authenticated">
+                    <li class="nav-item active nav-link" th:text="${#authentication.name}"></li>
                     <li class="nav-item active">
                         <!--/*@thymesVar id="cart" type="java.util.Map<com.example.demo.model.Product, java.lang.Integer>"*/-->
-                        <a class="nav-link" href="/cart" th:with="size=${#aggregates.sum(cart.values())}">
-                            My Cart
-                            <span th:if="${size != null}" th:text="| (${size})|"></span>
-                        </a>
+                        <!--<a class="nav-link" href="/cart" th:with="size=${#aggregates.sum(cart.values())}">-->
+                        <!--    My Cart-->
+                        <!--    <span th:if="${size != null}" th:text="| (${size})|"></span>-->
+                        <!--</a>-->
                     </li>
-                    <li class="nav-item active" th:unless="${loggedInUser == null}">
+                    <li class="nav-item active">
                         <a class="nav-link" href="/signout">Sign Out</a>
                     </li>
                 </th:block>
-                <li class="nav-item active" th:if="${loggedInUser == null}">
-                    <a class="nav-link" href="/signin">Sign In/Up</a>
+                <li class="nav-item active" sec:authorize="!authenticated">
+                    <a class="nav-link" href="/auth">Sign In/Up</a>
                 </li>
 
             </ul>
