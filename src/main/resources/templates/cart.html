@@ -9,7 +9,7 @@
 <main role="main">
     <div class="container">
         <div class="row">
-            <table class="table">
+            <table class="table" style="background-color: lightgray">
                 <thead>
                 <tr>
                     <th>Image</th>
@@ -26,8 +26,8 @@
                     <td style="width: 10%; padding-left: 0"><img th:src="@{|/images/${product.image}|}" style="width: 100%; max-height: 80px"/></td>
                     <td th:text="${product.name}"></td>
                     <td>
-                        <input type="hidden" name="id" th:value="${product.id}" form="updateForm" />
-                        <input type="number" name="quantity" min="0" th:value="${item.value}" form="updateForm" />
+                        <input type="hidden" name="id" th:value="${product.id}" form="updateForm"/>
+                        <input type="number" name="quantity" min="0" th:value="${item.value}" form="updateForm"/>
                     </td>
                     <td th:if="${list.add(product.price * item.value)}" th:text="${#numbers.formatCurrency(product.price * item.value)}"></td>
                     <td>
