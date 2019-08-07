@@ -6,9 +6,9 @@
 
 <main role="main">
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
+    <div id="top" class="jumbotron" style="color: white">
         <div class="container">
-            <h1 class="display-3">Tech Talent Store</h1>
+            <h1 class="display-3">E & B Tech Store</h1>
             <p>This is a small e-commerce application that allows the user to purchase some of a few products that are offered here. </p>
             <p><a class="btn btn-primary btn-lg" href="/about" role="button">Learn more &raquo;</a></p>
         </div>
@@ -17,8 +17,8 @@
     <div class="container">
         <div class="row">
 	        <div class="col-3" th:each="product : ${products}">
-                <div class="card">
-                    <img class="card-image-top" th:src="@{|/images/${product.image}|}" style="width: 100%;height: 220px;object-fit: cover;" alt="Card image cap">
+                <div class="card bg-dark" style="color: white; border-radius: 5%">
+                    <img class="card-image-top" th:src="@{|/images/${product.image}|}" style="width: 100%;height: 220px;object-fit: cover" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title" th:text="${product.name}"></h5>
                         <small class="card-text" th:text="${product.brand}"></small>
@@ -27,7 +27,7 @@
                         <form th:action="@{/cart}" method="post">
                             <input type="hidden" name="id" th:value="${product.id}" style="display: flex; justify-content: space-between;">
                             <button type="submit" class="btn btn-success" style="flex-grow: 0.95">Add to Cart<i class="fas fa-cart-plus fa" style="margin-left: 10px"></i></button>
-                            <a th:href="@{|/product/${product.id}|}" class="btn btn-info btn-block"><i class="fas fa-info" style="color: white"></i></a>
+                            <a th:href="@{|/product/${product.id}|}" class="btn btn-info"><i class="fas fa-info" style="color: white"></i></a>
                         </form>
                     </div>
                 </div>
@@ -35,7 +35,6 @@
         </div>
     </div>
 </main>
-
-<footer th:replace="fragments :: footer"></footer>
 </body>
+<footer th:replace="fragments :: footer"></footer>
 </html>

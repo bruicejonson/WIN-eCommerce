@@ -3,18 +3,20 @@
 <head th:replace="fragments :: head"></head>
 <body>
 <div th:replace="fragments :: navbar" ></div>
-<div id="contruction" class="jumbotron">
-    <img src="../static/images/webPageConstruction2.png" style="object-fit: cover; width: 40%;margin-left: 30%" alt="Card image cap">
-    <h6 style="text-align: center;margin-top: 2%">Note:
-        <small>If you want to purchase an item,<br>
+<div id="contruction" class="jumbotron bg-dark">
+    <img th:src="@{images/webPageConstruction2.png}" style="object-fit: cover; width: 40%;margin-left: 30%" alt="Card image cap">
+    <h6 style="text-align: center;margin-top: 2%; color: white">Note:
+        <small style="color: white" >If you want to purchase an item,<br>
             We only keep 1 item in stock for each product. So if you choose to purchase more than one of the same product we will charge you for the amount you requested,<br>
             but you will only receive one. Thank you for your continued business.</small>
     </h6>
-    <div style="display: flex; margin-top: 50px">
+    <div style="display: flex; margin-top: 50px" >
+		<a href="/">
         <button type="submit" class="btn btn-primary" style="border-radius: 10px"><i class="fas fa-chevron-left"></i></button>
+		</a>
         <h3 style="color: dimgrey;margin-left: 1%">Back</h3>
     </div>
 </div>
-<footer th:replace="fragments :: footer"></footer>
 </body>
+<footer th:replace="fragments :: footer"></footer>
 </html>

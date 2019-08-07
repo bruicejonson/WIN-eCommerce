@@ -6,17 +6,16 @@
 		
 		<div class="container">
 			<div class="row">
-				<div class="col-md-4">
-					<div class="card">
+				<div class="col-md-4 offset-md-4">
+					<div class="card bg-dark" style="margin: auto">
 						<div class="card-body">
-							<div class="card-title">Charge <span th:text="${charge.status}"></span></div>
-							<div class="card-text"><a th:href="${charge.receiptUrl}">See your receipt here.</a></div>
+							<div class="card-title" style="color: white">Charge <span th:text="${charge.status}"></span></div>
+							<div class="card-text"><a th:href="${charge.receiptUrl}" target="_blank">See your receipt here.</a></div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		
-		<footer th:replace="fragments :: footer"></footer>
 	</body>
+	<footer th:replace="fragments :: footer"></footer>
 </html>

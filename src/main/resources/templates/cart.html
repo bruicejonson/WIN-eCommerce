@@ -7,9 +7,9 @@
 <!--/*@thymesVar id="cart" type="java.util.Map<com.carolinafintechhub.ecommerce.Product, java.lang.Integer>"*/-->
 <!--/*@thymesVar id="total" type="java.lang.Double"*/-->
 <main role="main">
-    <div class="container">
+    <div class="container"style="margin-top: 20px">
         <div class="row">
-            <table class="table" style="background-color: lightgray">
+            <table class="table bg-dark" style="color: white">
                 <thead>
                 <tr>
                     <th>Image</th>
@@ -54,26 +54,27 @@
             <form th:action="@{/cart}" method="post" id="updateForm" th:if="${cart.size() > 0}">
                 <!-- form doesn't support PATCH requests, but this tells Spring Boot to use @PatchMapping anyway. -->
                 <input type="hidden" name="_method" value="PATCH" />
-                <button type="submit" class="btn btn-primary"><i class="fas fa-sync-alt"></i></button>
+                <button type="submit" class="btn btn-info">Update Cart<i class="fas fa-sync-alt" style="margin-left: 10px"></i></button>
             </form>
-	        <form th:action="@{/cart/checkout}" method="post" th:if="${cart.size() > 0}">
+	        <form th:action="@{/cart/checkout}" method="post" th:if="${cart.size() > 0}" style="margin-left: 80%">
 		        <!--/*@thymesVar id="publicKey" type="java.lang.String"*/-->
 		        <script
 			        src='https://checkout.stripe.com/checkout.js'
 			        class='stripe-button'
 			        th:attr='data-key=${publicKey}, data-amount=${total * 100}'
-			        data-name='WIN'
-			        data-description='Spring course checkout'
-			        data-image='http://www.baeldung.com/wp-content/themes/baeldung/favicon/android-chrome-192x192.png'
+			        data-name='E & B Tech'
+			        data-description='Tech Co. Checkout'
+			        data-image='/images/icon.jpg'
 			        data-locale='auto'
-			        data-zip-code='false'>
+			        data-zip-code='false'
+					data-label='Pay Now'
+					>
 		        </script>
 	        </form>
-            <div th:if="${cart.size() == 0}">Nothing in your cart yet.</div>
+            <div th:if="${cart.size() == 0}" style="color: white; text-align: center; width: 100%">Nothing in your cart yet.</div>
         </div>
     </div>
 </main>
-
-<div th:replace="fragments :: footer"></div>
 </body>
+<div th:replace="fragments :: footer"></div>
 </html>
