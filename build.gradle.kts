@@ -37,6 +37,7 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.thymeleaf.extras:thymeleaf-extras-springsecurity5")
 	implementation("khttp:khttp:0.1.0")
+	implementation("com.stripe:stripe-java:10.12.0")
 	compileOnly("org.projectlombok:lombok")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	runtimeOnly("com.h2database:h2")

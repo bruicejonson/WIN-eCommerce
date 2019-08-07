@@ -5,7 +5,7 @@
 <div th:replace="fragments :: navbar" ></div>
 
 <!--/*@thymesVar id="cart" type="java.util.Map<com.carolinafintechhub.ecommerce.Product, java.lang.Integer>"*/-->
-<!--/*@thymesVar id="list" type="java.util.ArrayList<kotlin.Double>"*/-->
+<!--/*@thymesVar id="total" type="java.lang.Double"*/-->
 <main role="main">
     <div class="container">
         <div class="row">
@@ -29,7 +29,7 @@
                         <input type="hidden" name="id" th:value="${product.id}" form="updateForm"/>
                         <input type="number" name="quantity" min="0" th:value="${item.value}" form="updateForm"/>
                     </td>
-                    <td th:if="${list.add(product.price * item.value)}" th:text="${#numbers.formatCurrency(product.price * item.value)}"></td>
+                    <td th:text="${#numbers.formatCurrency(product.price * item.value)}"></td>
                     <td>
                         <form th:action="@{/cart}" method="post" style="display: inline">
                             <input type="hidden" name="_method" value="DELETE" />
@@ -45,7 +45,7 @@
                     <td></td>
                     <td>Total</td>
                     <td></td>
-                    <td th:text="${#numbers.formatCurrency(#aggregates.sum(list))}"></td>
+                    <td th:text="${#numbers.formatCurrency(total)}"></td>
                     <td></td>
                 </tr>
                 </tfoot>
@@ -56,6 +56,19 @@
                 <input type="hidden" name="_method" value="PATCH" />
                 <button type="submit" class="btn btn-primary"><i class="fas fa-sync-alt"></i></button>
             </form>
+	        <form th:action="@{/cart/checkout}" method="post" th:if="${cart.size() > 0}">
+		        <!--/*@thymesVar id="publicKey" type="java.lang.String"*/-->
+		        <script
+			        src='https://checkout.stripe.com/checkout.js'
+			        class='stripe-button'
+			        th:attr='data-key=${publicKey}, data-amount=${total}'
+			        data-name='WIN'
+			        data-description='Spring course checkout'
+			        data-image='http://www.baeldung.com/wp-content/themes/baeldung/favicon/android-chrome-192x192.png'
+			        data-locale='auto'
+			        data-zip-code='false'>
+		        </script>
+	        </form>
             <div th:if="${cart.size() == 0}">Nothing in your cart yet.</div>
         </div>
     </div>

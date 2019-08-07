@@ -1,5 +1,7 @@
 package com.carolinafintechhub.ecommerce
 
+import com.stripe.Stripe
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.stereotype.Controller

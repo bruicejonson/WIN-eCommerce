@@ -17,10 +17,13 @@
 					<p>
 						<label for="password" class="sr-only">Password</label>
 						<input th:field="*{password}" th:errorclass="is-invalid" class="form-control" placeholder="Password" type="password" />
+						<small th:if="${#fields.hasErrors('password') && #fields.errors('password').contains('pwned')}" class="invalid-feedback">
+							must not have been pwned <a href="https://haveibeenpwned.com/passwords">';--have i been pwned?</a>
+						</small>
 					</p>
 					<div style="display: flex; justify-content: space-between">
-						<button class="btn btn-lg btn-primary" name="submit" value="in" type="submit" style="flex-grow: 0.95"><i class="fas fa-sign-in-alt" style="margin-left: 4%"></i></button>
-						<button class="btn btn-lg btn-success" name="submit" value="up" type="submit"><i class="fas fa-user-plus" style="margin-left: 2%"></i></button>
+						<button class="btn btn-lg btn-primary" name="type" value="in" type="submit" style="flex-grow: 0.95"><i class="fas fa-sign-in-alt" style="margin-left: 4%"></i></button>
+						<button class="btn btn-lg btn-success" name="type" value="up" type="submit"><i class="fas fa-user-plus" style="margin-left: 2%"></i></button>
 					</div>
 				</form>
 			</div>
