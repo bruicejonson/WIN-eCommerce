@@ -20,6 +20,7 @@ build/
 *.ipr
 .idea/
 out/
+bin/
 
 ### NetBeans ###
 /nbproject/private/

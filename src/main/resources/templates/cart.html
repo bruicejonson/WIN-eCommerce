@@ -61,7 +61,7 @@
 		        <script
 			        src='https://checkout.stripe.com/checkout.js'
 			        class='stripe-button'
-			        th:attr='data-key=${publicKey}, data-amount=${total}'
+			        th:attr='data-key=${publicKey}, data-amount=${total * 100}'
 			        data-name='WIN'
 			        data-description='Spring course checkout'
 			        data-image='http://www.baeldung.com/wp-content/themes/baeldung/favicon/android-chrome-192x192.png'

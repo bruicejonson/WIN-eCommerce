@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+	<head th:replace="fragments :: head"></head>
+	<body>
+		<div th:replace="fragments :: navbar" ></div>
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="card">
+						<div class="card-body">
+							<div class="card-title">Charge <span th:text="${charge.status}"></span></div>
+							<div class="card-text"><a th:href="${charge.receiptUrl}">See your receipt here.</a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<footer th:replace="fragments :: footer"></footer>
+	</body>
+</html>

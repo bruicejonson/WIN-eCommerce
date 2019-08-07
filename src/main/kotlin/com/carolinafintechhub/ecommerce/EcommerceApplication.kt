@@ -35,18 +35,6 @@ class MainController(val productService: ProductService) {
 	@get:GetMapping("/about")
 	val about = "about"
 	
-	@PostConstruct
-	fun init() {
-		productService.save(Product(
-			"iPhone X",
-			"Apple",
-			"Smart Phones",
-			"64 GB iOS 13",
-			"iphonex.jpg",
-			999.99
-		))
-	}
-	
 	@get:GetMapping("/404")
 	val fourOhFour = "404"
 }
