@@ -23,7 +23,7 @@ class SecurityConfiguration(
 	override fun configure(http: HttpSecurity) {
 		http {
 			authorizeRequests {
-				antMatchers("/cart").authenticated()
+				antMatchers("/cart/**").authenticated()
 			}
 			formLogin {
 				loginPage("/auth")

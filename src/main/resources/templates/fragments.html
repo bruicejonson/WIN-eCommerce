@@ -60,13 +60,7 @@
                 <!--/*@thymesVar id="loggedInUser" type="com.carolinafintechhub.ecommerce.User"*/-->
                 <th:block sec:authorize="authenticated">
                     <li class="nav-item active nav-link" th:text="${#authentication.name}"></li>
-                    <li class="nav-item active">
-                        <!--/*@thymesVar id="cart" type="java.util.Map<com.example.demo.model.Product, java.lang.Integer>"*/-->
-                        <!--<a class="nav-link" href="/cart" th:with="size=${#aggregates.sum(cart.values())}">-->
-                        <!--    My Cart-->
-                        <!--    <span th:if="${size != null}" th:text="| (${size})|"></span>-->
-                        <!--</a>-->
-                    </li>
+                    <li class="nav-item active"><a class="nav-link" href="/cart">My Cart</a></li>
                     <li class="nav-item active">
                         <a class="nav-link" href="/signout">Sign Out</a>
                     </li>

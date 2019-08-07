@@ -59,14 +59,14 @@ class CartController(
 	
 	@PostMapping("/checkout")
 	fun checkout(@RequestParam stripeToken: String, model: Model): String {
-		val charge = Charge.create(mapOf(
+		model["charge"] = Charge.create(mapOf(
 			"amount" to (total * 100).toInt(),
 			"source" to stripeToken,
 			"currency" to "USD"
 		))
-		model["charge"] = charge
 		
-		userService.updateCart(mapOf())
+		cart.clear()
+		userService.updateCart(cart)
 		
 		return "result"
 	}
