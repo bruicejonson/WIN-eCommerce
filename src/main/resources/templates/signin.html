@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments :: head"></head>
+<head th:replace="fragments :: head">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+</head>
 <head><link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous"></head>
 <body style="padding: 0">
 <div th:replace="fragments :: navbar" ></div>
@@ -18,8 +22,8 @@
                 <input type="password" id="password" name="password" class="form-control" placeholder="Password">
             </p>
             <div style="display: flex; justify-content: space-between">
-                <button class="btn btn-lg btn-primary" name="submit" value="in" type="submit" style="flex-grow: 0.95">Sign In</button>
-                <button class="btn btn-lg btn-success" name="submit" value="up" type="submit">Sign Up</button>
+                <button class="btn btn-lg btn-primary" name="submit" value="in" type="submit" style="flex-grow: 0.95"><i class="fas fa-sign-in-alt" style="margin-left: 4%"></i></button>
+                <button class="btn btn-lg btn-success" name="submit" value="up" type="submit"><i class="fas fa-user-plus" style="margin-left: 2%"></i></button>
             </div>
         </form>
     </div>

@@ -28,11 +28,11 @@
                         <small class="card-text">Apple</small>
                         <p class="card-text">64GB IOS 11 Silver</p>
                         <p class="card-text">$799.00</p>
-                        <form th:action="@{/cart}" method="post">
-                            <input type="hidden" name="id" th:value="${product.id}" style="display: flex; justify-content: space-between;">
-                            <button type="submit" class="btn btn-success btn-block"><i class="fas fa-cart-plus"></i></button>
-                            <a th:href="@{|/product/${product.id}|}" class="btn btn-info btn-block"><i class="fas fa-info" style="color: white"></i></a>
-                        </form>
+						<form th:action="@{/cart}" method="post" style="display: flex; justify-content: space-between">
+							<input type="hidden" name="id" th:value="${product.id}">
+							<button type="submit" class="btn btn-success" style="flex-grow: 0.95">Add To Cart<i class="fas fa-cart-plus fa" style="margin-left: 10px"></i></button>
+							<a th:href="@{|/product/${product.id}|}" class="btn btn-info"><i class="fas fa-info" style="color: white"></i></a>
+						</form>
                     </div>
                 </div>
             </div>
@@ -44,10 +44,10 @@
                     <small class="card-text">Apple</small>
                     <p class="card-text">64GB IOS 11 Space Gray</p>
                     <p class="card-text">$999.00</p>
-                    <form th:action="@{/cart}" method="post">
-                        <input type="hidden" name="id" th:value="${product.id}" style="display: flex; justify-content: space-between;">
-                        <button type="submit" class="btn btn-success btn-block"><i class="fas fa-cart-plus"></i></button>
-                        <a th:href="@{|/product/${product.id}|}" class="btn btn-info btn-block"><i class="fas fa-info" style="color: white"></i></a>
+                    <form th:action="@{/cart}" method="post" style="display: flex; justify-content: space-between">
+                        <input type="hidden" name="id" th:value="${product.id}">
+                        <button type="submit" class="btn btn-success" style="flex-grow: 0.95">Add To Cart<i class="fas fa-cart-plus fa" style="margin-left: 10px"></i></button>
+                        <a th:href="@{|/product/${product.id}|}" class="btn btn-info"><i class="fas fa-info" style="color: white"></i></a>
                     </form>
                 </div>
             </div>
@@ -60,11 +60,11 @@
                     <small class="card-text">Apple</small>
                     <p class="card-text">15' Laptop 512GB SSD</p>
                     <p class="card-text">$2,800.00</p>
-                    <form th:action="@{/cart}" method="post">
-                        <input type="hidden" name="id" th:value="${product.id}" style="display: flex; justify-content: space-between;">
-                        <button type="submit" class="btn btn-success btn-block"><i class="fas fa-cart-plus"></i></button>
-                        <a th:href="@{|/product/${product.id}|}" class="btn btn-info btn-block"><i class="fas fa-info" style="color: white"></i></a>
-                    </form>
+					<form th:action="@{/cart}" method="post" style="display: flex; justify-content: space-between">
+						<input type="hidden" name="id" th:value="${product.id}">
+						<button type="submit" class="btn btn-success" style="flex-grow: 0.95">Add To Cart<i class="fas fa-cart-plus fa" style="margin-left: 10px"></i></button>
+						<a th:href="@{|/product/${product.id}|}" class="btn btn-info"><i class="fas fa-info" style="color: white"></i></a>
+					</form>
                 </div>
             </div>
             </div>
@@ -76,11 +76,11 @@
                         <small class="card-text">LG</small>
                         <p class="card-text"> 65' Smart Tv</p>
                         <p class="card-text">$3,000.00</p>
-                        <form th:action="@{/cart}" method="post">
-                            <input type="hidden" name="id" th:value="${product.id}" style="display: flex; justify-content: space-between;">
-                            <button type="submit" class="btn btn-success btn-block"><i class="fas fa-cart-plus"></i></button>
-                            <a th:href="@{|/product/${product.id}|}" class="btn btn-info btn-block"><i class="fas fa-info" style="color: white"></i></a>
-                        </form>
+						<form th:action="@{/cart}" method="post" style="display: flex; justify-content: space-between">
+							<input type="hidden" name="id" th:value="${product.id}">
+							<button type="submit" class="btn btn-success" style="flex-grow: 0.95">Add To Cart<i class="fas fa-cart-plus fa" style="margin-left: 10px"></i></button>
+							<a th:href="@{|/product/${product.id}|}" class="btn btn-info"><i class="fas fa-info" style="color: white"></i></a>
+						</form>
                     </div>
                 </div>
             </div>
