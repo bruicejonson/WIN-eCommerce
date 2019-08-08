@@ -1,14 +1,11 @@
 package com.carolinafintechhub.ecommerce
 
-import com.stripe.Stripe
-import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.ControllerAdvice
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.ModelAttribute
-import javax.annotation.PostConstruct
 
 @SpringBootApplication
 class EcommerceApplication

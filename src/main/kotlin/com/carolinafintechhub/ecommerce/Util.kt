@@ -1,10 +1,10 @@
 package com.carolinafintechhub.ecommerce
 
+import java.util.Optional
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configurers.FormLoginConfigurer
 import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer as EUAC
-import java.util.Optional
 
 fun <T> Optional<T>.orNull(): T? = this.orElse(null)
 

@@ -35,8 +35,9 @@
 <div th:fragment="navbar">
     <nav class="navbar navbar-expand-md bg-dark " style="color: white">
 		<a class="navbar-brand" href="/">
-		<img th:src="@{/images/icon.jpg}" style="height: 40px; display: inline; border-radius: 100%; margin-right: 5px">
-        E & B Store</a>
+			<img th:src="@{/images/icon.jpg}" style="height: 40px; display: inline; border-radius: 100%; margin-right: 5px">
+            E & B Store
+		</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
                 aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -49,7 +50,7 @@
                        aria-haspopup="true" aria-expanded="false">Find By Category</a>
                     <div class="dropdown-menu bg-dark" aria-labelledby="dropdown01" >
                         <a class="dropdown-item bg-dark" href="/" style="color: white">All</a>
-                        <!--/*@thymesVar id="categories" type="java.util.List<com.example.demo.model.Category>"*/-->
+                        <!--/*@thymesVar id="categories" type="java.util.List<java.lang.String>"*/-->
                         <a class="dropdown-item bg-dark" style="color: white" th:each="category : ${categories}" th:text="${category}" th:href="@{/filter(category=${category})}"></a>
                     </div>
                 </li>
@@ -64,10 +65,13 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav ml-auto">
-                <!--/*@thymesVar id="loggedInUser" type="com.carolinafintechhub.ecommerce.User"*/-->
                 <th:block sec:authorize="authenticated">
                     <li class="nav-item active nav-link" th:text="${#authentication.name}"></li>
-					<li class="nav-item active"><a class="nav-link" href="/cart" >My Cart</a></li>
+					<li class="nav-item active"><a class="nav-link" href="/cart">
+						My Cart
+						<!--/*@thymesVar id="cart" type="java.util.Map<com.carolinafintechhub.ecommerce.Product, java.lang.Integer>"*/-->
+						<span th:if="${cart != null && cart.size() > 0}" th:text="| (${#aggregates.sum(cart.values())})|"></span>
+					</a></li>
                     <li class="nav-item active">
                         <a class="nav-link" href="/signout">Sign Out</a>
                     </li>

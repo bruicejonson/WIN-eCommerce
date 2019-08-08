@@ -6,10 +6,17 @@ import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.ui.set
-import org.springframework.web.bind.annotation.*
+import org.springframework.web.bind.annotation.ControllerAdvice
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.ModelAttribute
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestMethod
+import org.springframework.web.bind.annotation.RequestParam
 import kotlin.math.sign
 
 @Controller
+@ControllerAdvice
 @RequestMapping("/cart")
 class CartController(
 	val productService: ProductService,
@@ -25,7 +32,7 @@ class CartController(
 	}
 	
 	@get:ModelAttribute("cart")
-	val cart get() = userService.loggedInUser?.cart!!
+	val cart get() = userService.loggedInUser?.cart ?: mutableMapOf()
 	
 	@get:ModelAttribute("total")
 	val total get() = cart.entries.fold(0.0) { acc, e -> acc + e.key.price * e.value }
