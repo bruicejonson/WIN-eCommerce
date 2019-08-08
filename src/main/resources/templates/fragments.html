@@ -19,7 +19,8 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-			background-color: darkslategray;
+			background-image: linear-gradient(to right, black, steelblue);
+			background-size: cover;
         }
 
         .large-product-card .card-body {
@@ -33,7 +34,9 @@
 <body>
 <div th:fragment="navbar">
     <nav class="navbar navbar-expand-md bg-dark " style="color: white">
-        <a class="navbar-brand" href="/">E & B Store</a>
+		<a class="navbar-brand" href="/">
+		<img th:src="@{/images/icon.jpg}" style="height: 40px; display: inline; border-radius: 100%; margin-right: 5px">
+        E & B Store</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
                 aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -60,12 +63,11 @@
                     </div>
                 </li>
             </ul>
-
             <ul class="nav navbar-nav ml-auto">
                 <!--/*@thymesVar id="loggedInUser" type="com.carolinafintechhub.ecommerce.User"*/-->
                 <th:block sec:authorize="authenticated">
                     <li class="nav-item active nav-link" th:text="${#authentication.name}"></li>
-                    <li class="nav-item active"><a class="nav-link" href="/cart">My Cart</a></li>
+					<li class="nav-item active"><a class="nav-link" href="/cart" >My Cart</a></li>
                     <li class="nav-item active">
                         <a class="nav-link" href="/signout">Sign Out</a>
                     </li>
@@ -80,9 +82,8 @@
 </div>
 
 <footer th:fragment="footer">
-    <hr />
-    <div class="container">
-        <p style="text-align: center">&copy; E&B Tech 2017</p>
+    <div class="fixed-bottom">
+        <p style="text-align: right; margin-right: 20px">&copy; E&B Tech 2017</p>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

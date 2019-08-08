@@ -29,7 +29,7 @@
                         <input type="hidden" name="id" th:value="${product.id}" form="updateForm"/>
                         <input type="number" name="quantity" min="0" th:value="${item.value}" form="updateForm"/>
                     </td>
-                    <td th:text="${#numbers.formatCurrency(product.price * item.value)}"></td>
+                    <td style="color: goldenrod" th:text="${#numbers.formatCurrency(product.price * item.value)}"></td>
                     <td>
                         <form th:action="@{/cart}" method="post" style="display: inline">
                             <input type="hidden" name="_method" value="DELETE" />
@@ -43,9 +43,9 @@
                 <tfoot>
                 <tr>
                     <td></td>
-                    <td>Total</td>
+                    <td style="font-size: x-large">Total</td>
                     <td></td>
-                    <td th:text="${#numbers.formatCurrency(total)}"></td>
+                    <td style="color: goldenrod; font-size: x-large" th:text="${#numbers.formatCurrency(total)}"></td>
                     <td></td>
                 </tr>
                 </tfoot>

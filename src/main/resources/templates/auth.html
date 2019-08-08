@@ -5,7 +5,7 @@
 	<body style="padding: 0" class="bg-dark">
 		<div th:replace="fragments :: navbar" ></div>
 		
-		<main role="main" style="color: white; background-color: darkslategray">
+		<main role="main" style="color: white; background-image: linear-gradient(to right, black, steelblue)">
 			<div class="container">
 				<form class="form-signin" th:action="@{/auth}" th:object="${user}" method="post">
 					<h2 class="form-signin-heading" style="text-align: center">Please Sign In/Up</h2>
