@@ -23,6 +23,7 @@ import javax.persistence.ElementCollection
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
+import javax.servlet.ServletException
 import javax.servlet.http.HttpServletRequest
 import javax.validation.Valid
 import javax.validation.constraints.NotBlank
@@ -117,7 +118,16 @@ class AuthController(val userService: UserService) {
 		
 		if(result.hasErrors()) return "auth"
 		
-		request.login(user.username, password)
+		try {
+			request.login(user.username, password)
+		} catch(e: ServletException) {
+			when(e.message) {
+				"Bad credentials" -> result.rejectValue("password", "BadPassword", "incorrect password")
+				"UserDetailsService returned null, which is an interface contract violation" -> result.rejectValue("username", "UserNotFound", "incorrect username")
+				else -> result.rejectValue("username", "UnknownError", "unknown error ")
+			}
+			return "auth"
+		}
 		return "redirect:/"
 	}
 }
