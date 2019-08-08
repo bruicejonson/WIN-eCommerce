@@ -19,7 +19,7 @@
 	        <div class="col-3" th:each="product : ${products}">
                 <div class="card bg-dark" style="color: white; border-radius: 5%; height: 425px">
                     <img class="card-image-top" th:src="@{|/images/${product.image}|}" style="height: 40%; width: 90%; margin-left: 10px; margin-top: 5px" alt="Card image cap">
-                    <div class="card-body" style="width: 100%">
+                    <div class="card-body" style="width: 100%; margin-top: 10px">
                         <h5 class="card-title" th:text="${product.name}"></h5>
                         <small class="card-text" th:text="${product.brand}"></small>
                         <p class="card-text" th:text="${product.description}"></p>

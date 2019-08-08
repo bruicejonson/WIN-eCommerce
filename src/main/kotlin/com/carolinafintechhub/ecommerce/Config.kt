@@ -24,6 +24,7 @@ class SecurityConfiguration(
 		http {
 			authorizeRequests {
 				antMatchers("/cart/**").authenticated()
+				antMatchers("/console/**").permitAll()
 			}
 			formLogin {
 				loginPage("/auth")
@@ -33,6 +34,9 @@ class SecurityConfiguration(
 				logoutRequestMatcher(AntPathRequestMatcher("/signout"))
 				logoutSuccessUrl("/")
 			}
+			
+			headers().frameOptions().disable()
+			csrf().disable()
 		}
 	}
 }
